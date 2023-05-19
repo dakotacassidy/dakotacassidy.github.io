@@ -9,6 +9,6 @@ client: Customer
 category: Python Development
 description: Simple Python program which offers the user 7 commands to choose from
 
-<a href="C:/Users/cococ/OneDrive/Documents/SimplePythonProgram.py" download target="_blank" class="et_pb_button" >Download Link</a>
+"[SimplePythonProgram.py] (C:/Users/cococ/OneDrive/Documents/SimplePythonProgram.py)"
 
 ---
