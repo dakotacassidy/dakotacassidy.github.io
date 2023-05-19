@@ -1,11 +1,13 @@
 ---
 layout: default
 modal-id: 4
-date: 2014-07-15
+date: 2023-05-19
 img: game.png
 alt: image-alt
-project-date: April 2014
-client: Start Bootstrap
-category: Web Development
-description: Use this area of the page to describe your project. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Mollitia neque assumenda ipsam nihil, molestias magnam, recusandae quos quis inventore quisquam velit asperiores, vitae? Reprehenderit soluta, eos quod consequuntur itaque. Nam.
+project-date: April 2022
+client: Event Venue
+category: Dimensional Modeling with SQL
+description: Star schema model with both types of factless fact tables:
+Case 1: business activity (something happened), but nothing to measure
+Case 2: “conditions, coverage, or eligibility” – a “state of being” – but nothing to measure
 ---

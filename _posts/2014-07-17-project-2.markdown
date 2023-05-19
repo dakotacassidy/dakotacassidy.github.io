@@ -1,11 +1,17 @@
 ---
 layout: default
 modal-id: 2
-date: 2014-07-17
+date: 2023-05-19
 img: cake.png
 alt: image-alt
-project-date: April 2014
-client: Start Bootstrap
-category: Web Development
-description: Use this area of the page to describe your project. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Mollitia neque assumenda ipsam nihil, molestias magnam, recusandae quos quis inventore quisquam velit asperiores, vitae? Reprehenderit soluta, eos quod consequuntur itaque. Nam.
+project-date: May 2023
+client: Bellabeat
+category: Data Analysis with R
+description: Bellabeat is a high-tech manufacturer of health-focused products for women. The analysis using R was
+conducted on one of Bellabeat’s smart device data to gain insight into how customers are using their
+non-Bellbeat smart devices. Questions considered during the analysis were:
+1. What are some trends in smart device usage?
+2. How could these trends apply to Bellabeat customers?
+3. How could these trends help influence Bellabeat marketing strategy?
+
 ---

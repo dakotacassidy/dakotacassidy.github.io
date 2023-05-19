@@ -1,11 +1,15 @@
 ---
 layout: default
 modal-id: 3
-date: 2014-07-16
+date: 2023-05-19
 img: circus.png
 alt: image-alt
-project-date: April 2014
-client: Start Bootstrap
-category: Web Development
-description: Use this area of the page to describe your project. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Mollitia neque assumenda ipsam nihil, molestias magnam, recusandae quos quis inventore quisquam velit asperiores, vitae? Reprehenderit soluta, eos quod consequuntur itaque. Nam.
+project-date: August 2022
+client: Medicaid Provider Hospitals
+category: Data Analysis with Advanced Excel
+description: For this analysis, Medicaid provider hospital data from America was used that contains
+survey questions answered by patients. The answers are categorized by the state they were in,
+not the exact hospital. The main conclusion which can be gathered from this data is why
+someone would or would not recommend a hospital in the state based on the average
+percentage of patients answering the survey questions. 
 ---
