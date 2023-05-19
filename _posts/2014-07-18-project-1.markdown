@@ -1,11 +1,28 @@
 ---
 layout: default
 modal-id: 1
-date: 2014-07-18
+date: 2023-05-19
 img: cabin.png
 alt: image-alt
-project-date: April 2014
-client: Start Bootstrap
-category: Web Development
-description: Use this area of the page to describe your project. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Mollitia neque assumenda ipsam nihil, molestias magnam, recusandae quos quis inventore quisquam velit asperiores, vitae? Reprehenderit soluta, eos quod consequuntur itaque. Nam.
+project-date: December 2020
+client: Customer
+category: Python Development
+description: Simple Python program 
+1) Command 1 - The user selects an employee file using a file dialog
+2) Command 2 – The user chooses the number of auditors performing an audit and specifies the names of each
+auditor. Once the names are entered, they are output to the screen. If the number is entered incorrectly (for
+example a character is entered instead of a number) an error will be displayed and the user will be asked for the
+number again. The auditor names can be single names or first and last names.
+3) Command 3 - The user will specify the number of records that will be assigned to each auditor. Records will be
+randomly assigned to each auditor. If the number is entered incorrectly, an error message will be displayed and
+the user will be prompted for the number agian. A record can only be assigned one time. Each auditor will have
+10 unique records assigned to them. Once the records are assigned, they will be output to the screen.
+4) Command 4 – The names of the auditors will be output to the screen
+5) Command 5 - The names of the employees assigned to each auditor will be output to the screen
+6) Command 6 - The names of the employees assigned to each auditor will be saved to a csv file. The CSV file
+should contain the last name of the employee, the employee's date of birth, and 3 additional fields that you will
+yourself choose.
+7) Command 7 - The user quits the program
+If commands are not valid (not numbers between 1 and 7) an error will be displayed on the screen and the user
+will be asked to enter a command again.
 ---
