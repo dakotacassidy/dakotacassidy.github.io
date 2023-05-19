@@ -7,8 +7,6 @@ alt: image-alt
 project-date: December 2020
 client: Customer
 category: Python Development
-description: Simple Python program which offers the user 7 commands to choose from
-
-"[SimplePythonProgram.py] (C:/Users/cococ/OneDrive/Documents/SimplePythonProgram.py)"
+description: Simple Python program which offers the user 7 commands to choose from "[SimplePythonProgram.py] (C:/Users/cococ/OneDrive/Documents/SimplePythonProgram.py)"
 
 ---
