@@ -7,5 +7,5 @@ alt: image-alt
 project-date: April 2022
 client: Event Venue
 category: Dimensional Modeling with SQL
-description: Star schema model with both types of factless fact tables: <br> Case 1: business activity (something happened), but nothing to measure <br> Case 2: “conditions, coverage, or eligibility” – a “state of being” – but nothing to measure
+description: Star schema model with both types of factless fact tables: Case 1: business activity (something happened), but nothing to measure Case 2: “conditions, coverage, or eligibility” – a “state of being” – but nothing to measure
 ---
