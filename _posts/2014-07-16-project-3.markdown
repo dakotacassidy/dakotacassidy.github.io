@@ -7,9 +7,5 @@ alt: image-alt
 project-date: August 2022
 client: Medicaid Provider Hospitals
 category: Data Analysis with Advanced Excel
-description: For this analysis, Medicaid provider hospital data from America was used that contains
-survey questions answered by patients. The answers are categorized by the state they were in,
-not the exact hospital. The main conclusion which can be gathered from this data is why
-someone would or would not recommend a hospital in the state based on the average
-percentage of patients answering the survey questions. 
+description: Medicaid provider hospital data from America was analyzed to determine why someone would or would not recommend a hospital in a state.
 ---
