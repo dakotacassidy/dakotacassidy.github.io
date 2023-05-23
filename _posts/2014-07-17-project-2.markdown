@@ -8,5 +8,5 @@ project-date: May 2023
 client: Bellabeat
 category: Data Analysis with R
 description: The analysis using R was conducted on smart device data to gain insight into how trends could help influence Bellabeat marketing strategy.
-dlink: BellabeatCaseStudyDakotaCassidy.pdf, BellaBeatR.R
+dlink: BellabeatAnalysis.zip
 ---

@@ -8,5 +8,5 @@ project-date: August 2022
 client: Self
 category: Web Scraping with Python
 description: Work done webscraping with Python.
-dlink: WebScrape1.py, WebScrape2.py
+dlink: WebScrape.zip
 ---
