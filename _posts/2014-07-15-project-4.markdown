@@ -8,4 +8,5 @@ project-date: April 2022
 client: Event Venue
 category: Dimensional Modeling with SQL
 description: Star schema model with both types of factless fact tables. Case 1 - event tracking tables. Case 2 - coverage tables.
+dlink:
 ---

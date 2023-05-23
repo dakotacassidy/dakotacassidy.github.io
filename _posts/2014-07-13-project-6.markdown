@@ -8,4 +8,5 @@ project-date: October 2021
 client: Self
 category: SQL queries
 description: Simple and advanced SQL queries in action. 
+dlink:
 ---
