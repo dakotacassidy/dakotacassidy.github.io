@@ -8,5 +8,5 @@ project-date: August 2022
 client: Medicaid Provider Hospitals
 category: Data Analysis with Advanced Excel
 description: Medicaid provider hospital data from America was analyzed to determine why someone would or would not recommend a hospital in a state.
-dlink: MedicaidProviderDataAnalysisDakotaCassidy.pdf
+dlink: [Medicaid Provider Data Analysis] (MedicaidProviderDataAnalysisDakotaCassidy.pdf)
 ---
