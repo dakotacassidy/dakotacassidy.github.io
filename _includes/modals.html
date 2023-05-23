@@ -19,11 +19,13 @@
                 {% if post.description %}
                 <p>{{ post.description }}</p>
                 {% endif %}
-                    <ul
-                        {% if post.dlink %}
-                        Project:
-                        <a href="/Projectfiles/{{ post.dlink }}" download </a>
-                         {% endif %}
+                    <ul class="list-inline item-details">
+                       {% if post.dlink %}
+                       <li>
+                            Project:
+                            <strong> <a href="/Projectfiles/{{ post.dlink }}" download </a> </strong>
+                       </li>
+                       {% endif %}
                     </ul>
                     <ul class="list-inline item-details">
                         {% if post.client %}
