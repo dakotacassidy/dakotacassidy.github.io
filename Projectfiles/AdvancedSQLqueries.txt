@@ -1,0 +1,204 @@
+/* Assignment 5 Joins Dakota Cassidy
+	(8) Question 1 List all condo numbers in building c (building c condos), 
+	then the date they were cleaned, then the first and last name of the 
+	housekeeper who cleaned them in August, 2019.  Do not list duplicate info. */
+
+select distinct c.condo# "building c condos", datecleaned, lname, fname
+	from condos c, cleaning cl, housekeeping h, personnel p
+		where c.condo# = cl.condo#
+			and cl.hkid = h.hkid
+			and h.hkid = p.pid
+			and year(datecleaned) = '2019'
+			and month(datecleaned) = '08'
+			and bldg# = 'c';
+			
+/* (6) Question 2 Display the activities reserved in June, 2019 for 
+	more than 3 people. Display the activity description (activities 
+	reserved in june 2019 > 3 participants). Do not include duplicate information. */
+
+select distinct a.description "activities reserved in june 2019 > 3 participants"
+	from activities a join  reservations r
+		on a.aid = r.aid
+	where year(rdate) = '2019'
+		and month(rdate) = '06' 
+		and numberinparty > '3';
+		
+/* (5) Question 3 Retrieve a list of all guides who did not renewed their 
+	certifications last year (2019).  Include ID, first & last name, and 
+	(number of days overdue).  Code the calculation on a separate line. */
+
+select gid, fname, lname,
+	datediff (day, certdate, certrenewdate) "number of days overdue"
+from guides gu join personnel p
+	on gu.gid = p.pid 
+where year(certrenewdate) = '2019';
+
+/* (7) Question 4 Management needs the names of all guides who lead an 
+	activity with an expired certificate last year - 2019. Display the 
+	guide's first & last name, the certificate renewal date, and the date
+	and description (activity) of the activity. */
+
+select fname, lname, certrenewdate, rdate, description "activity"
+	from activities a, guides gu, personnel p, reservations r
+		where p.pid = gu.gid
+			and gu.gid = r.gid
+			and a.aid = r.aid
+			and certrenewdate < rdate
+			and year(rdate) = '2019';
+			
+/* (11) Question 5 We need the date (horseback reservation) and first & 
+	last names of all girls - the children - who went horseback riding 
+	last year - 2019.  List by family name within date. */
+
+select rdate "horseback reservation", f.fname, rlname
+	from families f join guests gu
+			on f.guest# = gu.guest#
+		join reservations r 
+			on gu.guest# = r.guest#
+		join activities a 
+			on a.aid = r.aid
+	where a.type = 'horseback'
+		and f.relationship = 'daughter'
+		and year(rdate) = '2019'
+order by 3, 1;
+
+/* (5) Question 6 For each manager (m), retrieve their last name 
+	(manager) and hire date and the last names (personnel) and hire 
+	dates of all personnel (p) working under them. Code the manager's 
+	data and personnel's data on separate lines. List by the manager's
+	last name. */
+
+select m.mgr# "m", m.lname "manager", 
+	p.lname "personnel", p.hiredate "p"
+		from personnel p, personnel m
+			where p.mgr# = m.pid
+order by 2;
+
+/* (4) Question 7 Display all guests who have ever participated in an 
+	activity, and include those guests in the result who have not
+	participated. Display the guest number and last name, the 
+	reservation number, the activity number, the date of the activity,
+	and the number who participated in the activity.  List the results 
+	by the reservation number. Hint: this requires only 1 statement. */
+
+select gu.guest#, rlname, rid, aid, rdate, numberinparty
+	from guests gu left join reservations r
+		on gu.guest# = r.guest#
+order by 3;
+
+/* (4) Question 8 Display all guests who have NEVER participated in an 
+	activity.  Display the guest number and last name, and the reservation 
+	number. Hint: This is a modification of Q7. */
+
+select gu.guest#, rlname, rid, aid, rdate, numberinparty
+	from  reservations r right join guests gu
+		on gu.guest# = r.guest#
+	where rid is null;
+	
+/* (8) Question 9 Some condo fees are increasing.  All 3-bed, 2-bath condos
+	have increased 8% in the price of the weekly stay.  Make the changes 
+	in the database first.  Then retrieve the price increase of only those 
+	condos affected by this price increase - show all data for those
+	records.   (Use one screenshot only for your screen shot file). */
+
+update condos
+	set weeklyfee = weeklyfee * 1.08
+		where bdrms = '3'
+			and baths = '2';
+
+select *
+	from condos
+		where bdrms = '3'
+			and baths = '2';
+			
+/* (9) Question 10 How many reservations for activities does each guide
+	have? List the guide ID, last name, and hire date, and the number of 
+	reservations (reservations per guide).  Calculate the number of 
+	reservations on a separte line.  Show only those guides with 4 or 
+more reservations and display the largest number of reservations first. */
+
+select gu.gid, p.lname, hiredate, 
+		count(rid) "reservations per guide"
+	from personnel p join guides gu
+		on p.pid = gu.gid
+	join reservations r
+		on gu.gid = r.gid
+	group by gu.gid, p.lname, hiredate
+	having count(rid) > 3
+order by 4 desc;
+
+/* (10) Question 11 Retrieve the guest number, family last name, the 
+	number of times each family stayed at the resort in 2019 (number of 
+	stays in 2019) and the total fees collected (total condo fees collected)
+	from each family for the rented condos.  Calculate the number of stays
+	and total fees on separate lines.  Show guests with the highest total
+	collected first. */
+
+select cs.guest#, rlname, 
+		count(cs.condo#) "number of stays in 2019",
+		sum(weeklyfee * datediff(week, startdate, enddate)) "total condo fees collected"
+	from condos c join condostays cs
+			on c.condo# = cs.condo#
+		join guests gu
+			on cs.guest# = gu.guest#
+	where year(startdate) = '2019'
+		group by cs.guest#, rlname
+order by 4 desc;
+
+/* (11) Question 12 Write the fully nested query to display the guest
+	number (guests on horseback), city and state of all guests who reserved
+	a horseback riding activity in June and July of 2019. */
+
+select guest# "guests on horseback", city, state
+	from guests
+		where guest# in 
+			(select guest#
+				from reservations
+					where year(rdate) = '2019'
+						and month(rdate) in ('06', '07')
+						and aid in
+						(select aid
+							from activities
+								where type = 'horseback'));
+
+/* (12) Question 13 Write a combination join and nested query: Retrieve 
+	the date of the reservation and all activity descriptions (a104 guests 
+	activities in 2019) that any guest of a104 participated. Housekeeping 
+	found a snake and are trying to figure out how it may have gotten into
+	the condo. Hint: you will bypass the guests table. */
+
+select rdate, description "a104 guests activities in 2019"
+	from reservations r join activities a
+		on r.aid = a.aid
+	where year(rdate) = '2019'
+		and guest# in 
+			(select guest#
+				from condostays
+					where condo# in
+						(select condo#
+							from condos
+								where bldg# = 'a'
+									and unitnum = '104'));
+									
+/* (15) Question 14 Unit C105 had quite a bit of damage after the last 
+	family stayed during the week of July 20, 2019. Write a fully nested 
+	query to obtain a list of the childrenâ€™s names (children staying in 
+	c105 july 20th week) and ages.  Code the age on a separate line. Hint: 
+	you are looking for an exact match on the date so don't use a date 
+	function here.  Follow the ERD - use all tables. */
+
+select fname "children staying in c105 july 20th week",
+		datediff(year, birthdate, getdate()) "age"
+	from families 
+		where guest# in 
+			(select guest#
+				from guests
+					where guest# in
+						(select guest#
+							from condostays
+								where startdate = '2019-07-20'
+								and condo# in
+										(select condo#
+											from condos
+												where bldg# = 'c'
+												and unitnum = '105')));
